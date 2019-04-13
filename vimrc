@@ -1,6 +1,7 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
 if has('win32') || has('win64')
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -109,11 +110,6 @@ let g:gitgutter_eager = 0
 " NERDCommenter settings
 let g:NERDCompactSexyComs = 1
 
-""" VIM Runtime path
-" filetype off
-" let &runtimepath.=','.expand('<sfile>:p:h').'/vimfiles'
-" filetype plugin indent on
-
 """ Error format
 " Don't treat J-Link logo as reported error message
 set efm-=%f:%l:%m
@@ -122,7 +118,7 @@ set efm-=%f:%l:%m
 set background=light
 colorscheme one
 
-""" Load machine-specific settings
+""" Load user-specific settings
 if filereadable(expand('$HOME/private.vimrc'))
 	source $HOME/private.vimrc
 endif
