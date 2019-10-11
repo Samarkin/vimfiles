@@ -11,7 +11,7 @@ endif
 if has('gui_running')
 "GUI font name
 if has('mac')
-set gfn=Merlo:h11
+set gfn=SF\ Mono:h11
 elseif has('win32') || has('win64')
 set gfn=Consolas
 endif
