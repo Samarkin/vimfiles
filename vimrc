@@ -13,7 +13,7 @@ if has('gui_running')
 if has('mac')
 set gfn=SF\ Mono:h11
 elseif has('win32') || has('win64')
-set gfn=Consolas
+set gfn=Consolas:h10
 endif
 	set mouse=a " use mouse
 	set guioptions+=c " use text menus if possible
