@@ -47,6 +47,7 @@ if has('win32')
 	" ???
 else
 	au FileType xml setlocal equalprg=xmllint\ --format\ -\ 2>/dev/null
+	au FileType json setlocal equalprg=python\ -m\ json.tool
 	command! Hex   :% ! xxd
 	command! Unhex :% ! xxd -r
 endif
