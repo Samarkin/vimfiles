@@ -9,12 +9,12 @@ endif
 
 """ GUI options
 if has('gui_running')
-"GUI font name
-if has('mac')
-set gfn=SF\ Mono:h11
-elseif has('win32') || has('win64')
-set gfn=Consolas:h10
-endif
+	"GUI font name
+	if has('mac')
+		set gfn=SF\ Mono:h11
+	elseif has('win32') || has('win64')
+		set gfn=Consolas:h10
+	endif
 	set mouse=a " use mouse
 	set guioptions+=c " use text menus if possible
 	set guioptions+=e " use gui tabs
@@ -26,6 +26,20 @@ endif
 	let no_buffers_menu = 1 " no buffers menu
 else " no GUI
 	set mouse= " do not use mouse
+	if has('mac')
+		" Remove delay when switching modes
+		set timeoutlen=1000 ttimeoutlen=10 " These values work fine on modern machines
+		" Configure cursor
+		let &t_SI.="\e[5 q" " INSERT mode
+		let &t_SR.="\e[4 q" " REPLACE mode
+		let &t_EI.="\e[1 q" " ELSE
+		"  1 -> blinking block
+		"  2 -> solid block
+		"  3 -> blinking underscore
+		"  4 -> solid underscore
+		"  5 -> blinking vertical bar
+		"  6 -> solid vertical bar
+	endif
 endif
 
 """ File format options
