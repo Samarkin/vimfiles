@@ -9,6 +9,15 @@
 ```
 git clone https://github.com/Samarkin/vimfiles ~/.vim
 ```
+Some distributions of git don't support HTTPS. If that's your case, use the following command instead:
+```
+git clone git://github.com/Samarkin/vimfiles ~/.vim
+```
+3. To update:
+```
+cd ~/.vim
+git pull
+```
 
 ### Windows
 
@@ -16,6 +25,11 @@ git clone https://github.com/Samarkin/vimfiles ~/.vim
 2. Execute the following command:
 ```
 git clone https://github.com/Samarkin/vimfiles %USERPROFILE%\vimfiles
+```
+3. To update:
+```
+cd %USERPROFILE%\vimfiles
+git pull
 ```
 
 ## User-specific settings
