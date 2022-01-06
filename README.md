@@ -7,11 +7,11 @@
 1. Make sure `~/.vimrc` and `~/.vim` do not exist.
 2. Execute the following command:
 ```
-git clone https://github.com/Samarkin/vimfiles ~/.vim
+git clone --recurse-submodules https://github.com/Samarkin/vimfiles ~/.vim
 ```
 Some distributions of git don't support HTTPS. If that's your case, use the following command instead:
 ```
-git clone git://github.com/Samarkin/vimfiles ~/.vim
+git clone --recurse-submodules git://github.com/Samarkin/vimfiles ~/.vim
 ```
 3. To update:
 ```
