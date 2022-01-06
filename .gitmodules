@@ -1,3 +1,6 @@
 [submodule "pack/plugins/start/kotlin-vim"]
 	path = pack/plugins/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
+[submodule "pack/plugins/start/swift.vim"]
+	path = pack/plugins/start/swift.vim
+	url = https://github.com/keith/swift.vim
