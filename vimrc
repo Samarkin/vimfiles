@@ -134,8 +134,8 @@ set background=light
 colorscheme one
 
 """ Load user-specific settings
-if filereadable(expand('$HOME/private.vimrc'))
-	source $HOME/private.vimrc
+if filereadable(expand('$HOME/.private.vimrc'))
+	source $HOME/.private.vimrc
 endif
 
 """ Поддержка командного режима при русской раскладке (аналог langmap для UTF-8)

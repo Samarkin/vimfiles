@@ -34,4 +34,4 @@ git pull
 
 ## User-specific settings
 
-To provide user-specific settings, create a file named `private.vimrc` in your user's home folder.
+To provide user-specific settings, create a file named `.private.vimrc` in your user's home folder.
