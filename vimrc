@@ -82,6 +82,7 @@ if has('win32')
 else
 	au FileType xml setlocal equalprg=xmllint\ --format\ -\ 2>/dev/null
 	au FileType json setlocal equalprg=python3\ -m\ json.tool
+	au FileType javascript setlocal equalprg=prettier\ --stdin-filepath\ file.js
 	command! Hex   :% ! xxd
 	command! Unhex :% ! xxd -r
 endif
