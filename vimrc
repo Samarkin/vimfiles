@@ -26,10 +26,30 @@ if has('gui_running')
 	let no_buffers_menu = 1 " no buffers menu
 else " no GUI
 	set mouse= " do not use mouse
-	if has('mac')
-		" Remove delay when switching modes
-		set timeoutlen=1000 ttimeoutlen=10 " These values work fine on modern machines
-		" Configure cursor
+	" Remove delay when switching modes (keeps the cursor shape snappy)
+	set timeoutlen=1000 ttimeoutlen=10 " These values work fine on modern machines
+	" Configure cursor
+	if &term ==# 'linux'
+		" Linux console uses private cursor codes; DECSCUSR is not supported
+		let &t_SI.="\e[?2c" " INSERT mode  -> underscore
+		let &t_SR.="\e[?4c" " REPLACE mode -> lower half
+		let &t_EI.="\e[?6c" " ELSE         -> full block
+		" Toggle visibility via DECTCEM, otherwise Vim's builtin t_vi/t_ve
+		" (\e[?1c / \e[?0c) reset the softcursor shape on every redraw
+		let &t_vi="\e[?25l" " hide cursor
+		let &t_ve="\e[?25h" " show cursor
+		" Vim only sets the shape on mode change, so force the normal-mode
+		" block at startup (t_ti) and restore the default on exit (t_te)
+		let &t_ti.="\e[?6c" " entering Vim -> block
+		let &t_te.="\e[?0c" " leaving Vim  -> default
+		"  0 -> default
+		"  1 -> invisible
+		"  2 -> underscore
+		"  3 -> lower third
+		"  4 -> lower half
+		"  5 -> two thirds
+		"  6 -> full block
+	elseif !has('win32') && !has('win64')
 		let &t_SI.="\e[5 q" " INSERT mode
 		let &t_SR.="\e[4 q" " REPLACE mode
 		let &t_EI.="\e[1 q" " ELSE
