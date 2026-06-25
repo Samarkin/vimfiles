@@ -328,7 +328,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call <sid>X('IncSearch',        s:hue_6,         '',               '')
   call <sid>X('LineNr',           s:mono_2,        s:syntax_cursor,  '')
   call <sid>X('CursorLineNr',     s:syntax_fg,     s:syntax_cursor,  'none')
-  call <sid>X('MatchParen',       s:syntax_bg,     s:hue_3,          '')
+  call <sid>X('MatchParen',       s:hue_3,         s:mono_4,         '')
   call <sid>X('Italic',           '',              '',               'italic')
   call <sid>X('ModeMsg',          s:syntax_fg,     '',               '')
   call <sid>X('MoreMsg',          s:syntax_fg,     '',               '')
