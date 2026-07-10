@@ -59,6 +59,14 @@ else " no GUI
 		"  4 -> solid underscore
 		"  5 -> blinking vertical bar
 		"  6 -> solid vertical bar
+		" Warn about outside file changes on focus
+		if exists('&t_fe')
+			let &t_fe="\e[?1004h" " entering Vim -> enable focus reporting
+			let &t_fd="\e[?1004l" " leaving Vim  -> disable it
+			execute "set <FocusGained>=\e[I"
+			execute "set <FocusLost>=\e[O"
+			au FocusGained * checktime
+		endif
 	endif
 endif
 
